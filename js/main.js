@@ -1,3 +1,18 @@
+let collections = [
+    {
+        title:"a collection of old worlds on Facebook Marketplace",
+        author:"Alex Pushkin",
+        range:"a long time ago-present",
+        link:"https://blairjohnsonpoetry.com"
+    },
+    {
+        title:"test title",
+        author:"test author",
+        range:"test range",
+        link:"test link"
+    }
+]
+
 let rocks = [];
 let click = false;
 
@@ -41,7 +56,8 @@ function setupAsciify(){
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight, WEBGL);
+  let c = createCanvas(windowWidth, windowHeight, WEBGL);
+  c.parent("#canv")
   background(255);
   let rows = 4;
   let columns = 4;
@@ -51,17 +67,19 @@ function setup() {
   let cabSizeHalf = cabSize*0.5;
   click = false;
   
-  for (i=0; i<16; i++)
+  for (i=0; i<collections.length; i++)
     {
-      let newRock = new Rock(
-        spacing*0.5 + map((i%columns)*spacing, 0, cabSize, -cabSizeHalf, cabSizeHalf), 
-        -windowHeight*0.5 + topPadding +  spacing*0.5+floor(i/columns)*spacing);
-      rocks.push(newRock)
+        let newRock = new Rock(
+            spacing*0.5 + map((i%columns)*spacing, 0, cabSize, -cabSizeHalf, cabSizeHalf), 
+            -windowHeight*0.5 + topPadding +  spacing*0.5+floor(i/columns)*spacing);
+    
+        newRock.collection = collections[i];
+        rocks.push(newRock);
     }
   for (i=0;i<rocks.length;i++)
     {
-      rocks[i].create();
-      rocks[i].show();
+        rocks[i].create();
+        rocks[i].show();
     }
   
 }
@@ -103,6 +121,8 @@ function mouseReleased()
 function Rock(x, y){
   this.position = createVector(x,y);
   this.r = 50;
+  this.collection = {title:"",author:"",range:"",link:""};
+
   this.over = function()
   {
     if (mouseX-width/2 > this.position.x-this.r && 
@@ -138,7 +158,7 @@ function Rock(x, y){
       createVector(random(-5,5),random(25,35)),
       createVector(random(-25,-35),random(-5,5))
     ];
-    this.rgb = [random(0,100), random(255), random(255)];
+    this.rgb = [random(0,100), random(0,255), random(0,255)];
     this.randomScale = createVector(random(0.5,1.33),random(0.5,1.33));
   }
   this.randomRotation = random(0,TWO_PI);
@@ -174,7 +194,7 @@ function Rock(x, y){
     
       push();
         translate(this.position.x, this.position.y);
-        fill(this.fillMod + this.rgb[0]); 
+        fill(this.fillMod + this.rgb[0], this.rgb[1], this.rgb[2]); 
         rotate(this.randomRotation + this.rotationMod);
         scale(this.randomScale.x,this.randomScale.y);
         scale(this.scaleMod)
@@ -203,10 +223,33 @@ function Rock(x, y){
   }
 }
 
-    // beginShape();
-    // vertex(50,50)
-    // vertex(random(75,80),random(40,55))
-    //   quadraticVertex(random(60,80),random(90,125),0,random(60,80))
-    // vertex(random(25,50),random(35,60))
-    // vertex(50,50)
-    // endShape(CLOSE);
+function mouseClicked()
+{
+    for (i=0;i<rocks.length;i++)
+    {
+        if (rocks[i].over())
+        {
+            console.log("rock was clicked!");
+            changeCollectionInfo(
+                rocks[i].collection.title,
+                rocks[i].collection.author,
+                rocks[i].collection.range,
+                rocks[i].collection.link,
+                );
+        }
+    }
+}
+
+function changeCollectionInfo(title,author,range,link)
+{
+    let titleP = document.getElementById("rock-title");
+    let authorP = document.getElementById("rock-author");
+    let rangeP = document.getElementById("rock-range");
+    let linkP = document.getElementById("rock-link");
+
+    titleP.innerHTML = title;
+    authorP.innerHTML = author;
+    rangeP.innerHTML = range;
+    linkP.href = link;
+    console.log(titleP.innerHTML);
+}
