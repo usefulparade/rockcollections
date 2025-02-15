@@ -1,10 +1,34 @@
 let collections = [
     {
-        title:"a collection of old worlds on Facebook Marketplace",
-        author:"Alex Pushkin",
-        range:"a long time ago-present",
-        link:"https://blairjohnsonpoetry.com"
+        title:"A collection of Questions",
+        author:"Hue",
+        range:"2019 – present",
+        link:"https://www.are.na/hue-ho_8g3p7r7y/practicing-compassionate-curiosity"
     },
+    {
+        title:"A collection of security patterns found in envelope liners",
+        author:"Brandon Alvarado",
+        range:"2018 – present",
+        link:"https://www.are.na/brandon-alvarado/envelope-liners"
+    },
+    {
+        title:"A collection of Naoto's memories",
+        author:"Naoto Hieda",
+        range:"2022",
+        link:"https://soup.glitches.me/"
+    },
+    {
+        title:"A collection of every officially licensed mew and mewtwo plush",
+        author:"Kyle Robateau",
+        range:"2024 – present",
+        link:""
+    },
+    {
+        title:"A collection of signs telling us what not to do around the world",
+        author:"Laura Sinisterra",
+        range:"2022 – present",
+        link:"https://www.are.na/laura-sinisterra/observing-signs"
+  },
     {
         title:"test title",
         author:"test author",
