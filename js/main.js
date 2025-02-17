@@ -1,3 +1,10 @@
+let about = {
+  title:"A collection of other people's digital collections",
+  author:"Useful Parade (Blair Johnson and Luke Williams)",
+  range:"2025 – present",
+  link:""
+}
+
 let collections = [
     {
         title:"A collection of Questions",
@@ -39,6 +46,12 @@ let collections = [
 
 let rocks = [];
 let click = false;
+
+let columns;
+let spacing;
+let topPadding;
+let cabSize;
+let cabSizeHalf;
 
 let finalOptions = {
   enabled: true,
@@ -83,12 +96,11 @@ function setup() {
   let c = createCanvas(windowWidth, windowHeight, WEBGL);
   c.parent("#canv")
   background(255);
-  let rows = 4;
-  let columns = 4;
-  let spacing = 100;
-  let topPadding = 100;
-  let cabSize = spacing*columns;
-  let cabSizeHalf = cabSize*0.5;
+  columns = floor(constrain((windowWidth / 200), 2, 6));
+  spacing = 100;
+  topPadding = 100;
+  cabSize = spacing*columns;
+  cabSizeHalf = cabSize*0.5;
   click = false;
   
   for (i=0; i<collections.length; i++)
@@ -143,23 +155,24 @@ function mouseReleased()
 
 
 function Rock(x, y){
-  this.position = createVector(x,y);
+  this.pos = createVector(0,0);
+  this.targetPos = createVector(x,y)
   this.r = 50;
   this.collection = {title:"",author:"",range:"",link:""};
 
   this.over = function()
   {
-    if (mouseX-width/2 > this.position.x-this.r && 
-        mouseX-width/2 < this.position.x+this.r && 
-        mouseY-height/2 > this.position.y-this.r && 
-        mouseY-height/2 < this.position.y+this.r)
+    if (mouseX-width/2 > this.pos.x-this.r && 
+        mouseX-width/2 < this.pos.x+this.r && 
+        mouseY-height/2 > this.pos.y-this.r && 
+        mouseY-height/2 < this.pos.y+this.r)
       {
         return true;
       }
-    else if (touches[0] && touches[0].x-width/2 > this.position.x-this.r && 
-             touches[0].x-width/2 < this.position.x+this.r && 
-             touches[0].y-height/2 > this.position.y-this.r && 
-             touches[0].y-height/2 < this.position.y+this.r)
+    else if (touches[0] && touches[0].x-width/2 > this.pos.x-this.r && 
+             touches[0].x-width/2 < this.pos.x+this.r && 
+             touches[0].y-height/2 > this.pos.y-this.r && 
+             touches[0].y-height/2 < this.pos.y+this.r)
       {
         return true;       
       }      
@@ -192,6 +205,10 @@ function Rock(x, y){
   
   this.show = function(){
     
+    if (this.pos != this.targetPos)
+    {
+      this.pos = p5.Vector.lerp(this.pos,this.targetPos,0.2);
+    }
     if (this.over())
       {
         this.rotationMod+=0.05;
@@ -217,7 +234,7 @@ function Rock(x, y){
       }
     
       push();
-        translate(this.position.x, this.position.y);
+        translate(this.pos.x, this.pos.y);
         fill(this.fillMod + this.rgb[0], this.rgb[1], this.rgb[2]); 
         rotate(this.randomRotation + this.rotationMod);
         scale(this.randomScale.x,this.randomScale.y);
@@ -276,4 +293,21 @@ function changeCollectionInfo(title,author,range,link)
     rangeP.innerHTML = range;
     linkP.href = link;
     console.log(titleP.innerHTML);
+}
+
+function windowResized()
+{
+  resizeCanvas(windowWidth, windowHeight);
+
+  columns = floor(constrain((windowWidth / 200), 2, 6));
+  spacing = 100;
+  topPadding = 100;
+  cabSize = spacing*columns;
+  cabSizeHalf = cabSize*0.5;
+
+  for (i=0;i<rocks.length;i++)
+  {
+    rocks[i].targetPos = createVector(spacing*0.5 + map((i%columns)*spacing, 0, cabSize, -cabSizeHalf, cabSizeHalf), 
+    -windowHeight*0.5 + topPadding +  spacing*0.5+floor(i/columns)*spacing);
+  }
 }
