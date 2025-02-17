@@ -35,13 +35,7 @@ let collections = [
         author:"Laura Sinisterra",
         range:"2022 – present",
         link:"https://www.are.na/laura-sinisterra/observing-signs"
-  },
-    {
-        title:"test title",
-        author:"test author",
-        range:"test range",
-        link:"test link"
-    }
+  }
 ]
 
 let rocks = [];
@@ -55,7 +49,7 @@ let cabSizeHalf;
 
 let finalOptions = {
   enabled: true,
-  characters: "o*~ .><'-+^~ ] ><o/\|",
+  characters: "o*~ .><'-+^~ ] ><o/\|. ",
   characterColor: "#000",
   characterColorMode: 'sampled',
   backgroundColor: "#FFF",
@@ -94,8 +88,7 @@ function setupAsciify(){
 
 function setup() {
   let c = createCanvas(windowWidth, windowHeight, WEBGL);
-  c.parent("#canv")
-  background(255);
+  c.parent("#canv");
   columns = floor(constrain((windowWidth / 200), 2, 6));
   spacing = 100;
   topPadding = 100;
@@ -121,7 +114,7 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  background(240);
   var changeCursor = false;
   for (i=0;i<rocks.length;i++)
     {
@@ -159,7 +152,7 @@ function Rock(x, y){
   this.targetPos = createVector(x,y)
   this.r = 50;
   this.collection = {title:"",author:"",range:"",link:""};
-
+  this.active = false;
   this.over = function()
   {
     if (mouseX-width/2 > this.pos.x-this.r && 
@@ -209,33 +202,34 @@ function Rock(x, y){
     {
       this.pos = p5.Vector.lerp(this.pos,this.targetPos,0.2);
     }
+
+    stroke(255);
+    strokeWeight(1);
+    if (this.active)
+    {
+      // strokeWeight(10);
+      this.rotationMod+=0.05;
+    }
+
     if (this.over())
       {
         this.rotationMod+=0.05;
-        // stroke(0);
-        // strokeWeight(6);
         this.scaleMod = 1.2;
         
         if (click)
           {
             this.scaleMod = 1.66;
-            // this.fillMod = 255;
-          }
-        else
-          {
-            // this.fillMod = 0;
           }
       }
     else
       {
-        // noStroke();
         this.fillMod = 0;
         this.scaleMod = 1;
       }
     
       push();
         translate(this.pos.x, this.pos.y);
-        fill(this.fillMod + this.rgb[0], this.rgb[1], this.rgb[2]); 
+        fill(this.fillMod + this.rgb[0]); 
         rotate(this.randomRotation + this.rotationMod);
         scale(this.randomScale.x,this.randomScale.y);
         scale(this.scaleMod)
@@ -266,19 +260,30 @@ function Rock(x, y){
 
 function mouseClicked()
 {
+  let rockClicked = false;
+  let rockInd = 0;
     for (i=0;i<rocks.length;i++)
     {
         if (rocks[i].over())
         {
-            console.log("rock was clicked!");
-            changeCollectionInfo(
-                rocks[i].collection.title,
-                rocks[i].collection.author,
-                rocks[i].collection.range,
-                rocks[i].collection.link,
-                );
+          rockClicked = true;
+          rockInd = i;
+          rocks[i].active = true;
+          console.log("rock was clicked!");
+          changeCollectionInfo(
+              rocks[i].collection.title,
+              rocks[i].collection.author,
+              rocks[i].collection.range,
+              rocks[i].collection.link,
+              );
         }
     }
+    if (rockClicked)
+    {
+      rocks.forEach(rock => (rock.active = false));
+      rocks[rockInd].active = true;
+    }
+
 }
 
 function changeCollectionInfo(title,author,range,link)
@@ -293,6 +298,19 @@ function changeCollectionInfo(title,author,range,link)
     rangeP.innerHTML = range;
     linkP.href = link;
     console.log(titleP.innerHTML);
+}
+
+function showAbout(show)
+{
+  let about = document.getElementById("about-block");
+  if (show)
+  {
+    about.style.left = "0vw";
+  }
+  else
+  {
+    about.style.left = "100vw";
+  }
 }
 
 function windowResized()

@@ -16,24 +16,45 @@
     about.link)">
     <main>
         <div class="nav">
+          <div class="nav-about">
+            <h2>
+              + <a href="#" onclick="showAbout(true);">about</a>
+              + <a target="_blank" href="https://blairhereandthere.notion.site/193295295861806b9415f3fd894a5a23">submit</a></h2>
+          </div>
             <div class="nav-title">
+              
                 <h1><a href="#" onclick="changeCollectionInfo(
                   about.title,
                   about.author,
                   about.range,
-                  about.link)">rock collections</a></h1>
-                <!-- <h2>other people's digital collections</h2> -->
+                  about.link); showAbout(false);">rock collections</a></h1>
+                
             </div>
             <div class="nav-details">
                 <p id="rock-title"></p>
                 <p id="rock-author"></p>
                 <p id="rock-range"></p>
-                <p><a id="rock-link" target="_blank" href="">visit this collection ></a></p>
+                <p><a id="rock-link" target="_blank" href="">visit this collection ></a>
+                
+                </p>
             </div>
+
+            
         </div>
     </main>
     <div class="canv" id="canv">
-        
+      <div class="about" id="about-block">
+        <p><a href="#" onclick="showAbout(false)">close ></a></p>
+        <p>Rock Collections is a site where you can comb through what other people collect online, to explore the small, personal, and idiosyncratic internet.</p>
+        <h2><b>on rock collecting</b></h2>
+        <p>Paul collected rocks. He kept small piles everywhere, arranged on the corners of tables in the kitchen, in his studio, across windowsills, marking any place he spent time. He would share them with you in quick joyful rituals: holding them, his eyes lighting up as he remembered exactly why he had held on to it—look, this one has two perfect parallel stripes. Then he would hand it to you, and make you feel it too.</p>
+        <p>Collecting is a personal, sometimes secret, somehow childlike activity. You pick something up, grow attached to it as an object in your hands, and it becomes too familiar, too yours, to put back down. This type of collecting—shells, buttons, bottle caps, rocks, pins—exemplifies the type of collector that Walter Benjamin described when he said that “Collectors are beings with tactile instincts.”</p>
+        <h2><b>Rock Collections</b></h2>
+        <p>Rock Collections is a project that asks what kinds of collecting “beings with tactile instincts” practice in digital spaces. What traces do we pick up, and carry with us, and how? Where and in what form do these collections live? Despite the scale of internet life, this project looks for traces of the small, personal, and handmade in our digital lives. Rock Collections is a site where you can comb through other people’s digital collections. It’s not a totalizing, all encompassing catalogue of the Internet. It’s just a small corner, where someone can hand you something they’ve found, and say here, look at this one.</p>
+        <h2><b>send us your collection</b></h2>
+        <p>Do you have a digital collection? A folder of highly specific screenshots? A typed list in a note on your phone? Submit to Rock Collections, a site where you can comb through the digital things that other people hold on to.</p>
+        <p>What do you collect from digital spaces? How do you collect it? Is it a folder of screenshots? A typed list in a note on your phone? A pile of images on your desktop? A hand-coded website? A spreadsheet of links? An are.na channel or Pinterest board? A pile of post-it notes of handwritten urls?</p>
+      </div>
     </div>
   </body>
 </html>

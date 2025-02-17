@@ -10,6 +10,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     
 }
 
@@ -34,6 +35,13 @@ p {
 .nav {
     padding-top: 30px;
     padding-bottom: 30px;
+    min-height: 100px;
+}
+.nav-about {
+    display: inline-block;
+    position: relative;
+    width: 100vw;
+    padding-left: 2%;
 }
 
 .nav-title {
@@ -67,6 +75,21 @@ p {
     width: 30%;
 }
 
+.about {
+    display: block;
+    position: absolute;
+    box-sizing: content-box;
+    top: 0px;
+    left: 100vw;
+    width: 60vw;
+    height: 100vh;
+    z-index: 1;
+    padding: 2%;
+    margin-left: 33vw;
+    background-color: white;
+    transition: all 0.5s ease-in-out;
+}
+
 .canv
 {
     display: inline-block;
@@ -88,9 +111,15 @@ canvas {
 }
 
 @media only screen and (max-width: 640px){
+    
+    
+    .nav-about {
+        padding-left: 4%;
+    }
+
     .nav-title {
         width: 100vw;
-        
+        padding-left: 4%;
     }
     
     .nav-details {
