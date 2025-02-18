@@ -51,7 +51,11 @@ p {
     vertical-align: text-top;
     padding-left: 2%;
     box-sizing: border-box;
-    
+}
+
+.nav-title a:link {
+    text-decoration: none;
+    color: black;
 }
 
 .nav-details {
@@ -134,6 +138,12 @@ canvas {
     
     .nav-details p#rock-title {
         width: 30%;
+    }
+
+    .about {
+        box-sizing: content-box;
+        margin-left: 10vw;
+        width: 80vw;
     }
 
 }

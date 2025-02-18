@@ -18,8 +18,13 @@
         <div class="nav">
           <div class="nav-about">
             <h2>
-              + <a href="#" onclick="showAbout(true);">about</a>
-              + <a target="_blank" href="https://blairhereandthere.notion.site/193295295861806b9415f3fd894a5a23">submit</a></h2>
+              + <a href="#" onclick="changeCollectionInfo(
+                about.title,
+                about.author,
+                about.range,
+                about.link); showAbout(false); showAbout(true);">about</a>
+              + <a target="_blank" href="https://blairhereandthere.notion.site/193295295861806b9415f3fd894a5a23">submit</a>
+              + <a href="#" onclick="shuffleRocks();">shuffle</a></h2>
           </div>
             <div class="nav-title">
               
@@ -34,17 +39,21 @@
                 <p id="rock-title"></p>
                 <p id="rock-author"></p>
                 <p id="rock-range"></p>
-                <p><a id="rock-link" target="_blank" href="">visit this collection ></a>
+                <p><a id="rock-link" target="_blank" href=""><span id="rock-visit">visit this collection ></span></a>
                 
                 </p>
             </div>
-
-            
         </div>
     </main>
     <div class="canv" id="canv">
       <div class="about" id="about-block">
         <p><a href="#" onclick="showAbout(false)">close ></a></p>
+        
+        <p>a Useful Parade site by
+          <a target="_blank" href="https://blairjohnsonpoetry.com">Blair Johnson</a> and 
+          <a target="_blank" href="https://lukewilliamsmusic.com">Luke Williams</a></p>
+        <p>2025-present</p>
+        <br>
         <p>Rock Collections is a site where you can comb through what other people collect online, to explore the small, personal, and idiosyncratic internet.</p>
         <h2><b>on rock collecting</b></h2>
         <p>Paul collected rocks. He kept small piles everywhere, arranged on the corners of tables in the kitchen, in his studio, across windowsills, marking any place he spent time. He would share them with you in quick joyful rituals: holding them, his eyes lighting up as he remembered exactly why he had held on to it—look, this one has two perfect parallel stripes. Then he would hand it to you, and make you feel it too.</p>

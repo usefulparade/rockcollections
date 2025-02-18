@@ -1,9 +1,11 @@
 let about = {
   title:"A collection of other people's digital collections",
-  author:"Useful Parade (Blair Johnson and Luke Williams)",
-  range:"2025 – present",
+  author:"",
+  range:"",
   link:""
 }
+
+let aboutOpen = false;
 
 let collections = [
     {
@@ -28,14 +30,32 @@ let collections = [
         title:"A collection of every officially licensed mew and mewtwo plush",
         author:"Kyle Robateau",
         range:"2024 – present",
-        link:""
+        link:"collections/robateau-plushes.pdf"
     },
     {
         title:"A collection of signs telling us what not to do around the world",
         author:"Laura Sinisterra",
         range:"2022 – present",
         link:"https://www.are.na/laura-sinisterra/observing-signs"
-  }
+    },
+    {
+        title:"A collection of stills from Ratatouille (2007)",
+        author:"eastmountain",
+        range:"May 2021",
+        link:"collections/eastmountain_screenshots/"
+    },
+    {
+        title:"A collection of every data graphic in Star Trek",
+        author:"Emily Fuhrman",
+        range:"2016-2021",
+        link:"https://startrekvis.tumblr.com/"
+    },
+    {
+        title:"A collection of floor plans",
+        author:"Emily Fuhrman",
+        range:"May 2014-2016",
+        link:"https://emilyfuhrman.co/interactive/Y2014002/"
+    }
 ]
 
 let rocks = [];
@@ -89,12 +109,17 @@ function setupAsciify(){
 function setup() {
   let c = createCanvas(windowWidth, windowHeight, WEBGL);
   c.parent("#canv");
+
+  // randomSeed(100);
+
   columns = floor(constrain((windowWidth / 200), 2, 6));
   spacing = 100;
   topPadding = 100;
   cabSize = spacing*columns;
   cabSizeHalf = cabSize*0.5;
   click = false;
+
+  collections = shuffle(collections);
   
   for (i=0; i<collections.length; i++)
     {
@@ -260,6 +285,9 @@ function Rock(x, y){
 
 function mouseClicked()
 {
+
+  if (aboutOpen) return;
+  
   let rockClicked = false;
   let rockInd = 0;
     for (i=0;i<rocks.length;i++)
@@ -292,25 +320,37 @@ function changeCollectionInfo(title,author,range,link)
     let authorP = document.getElementById("rock-author");
     let rangeP = document.getElementById("rock-range");
     let linkP = document.getElementById("rock-link");
+    let visitP = document.getElementById("rock-visit");
 
     titleP.innerHTML = title;
     authorP.innerHTML = author;
     rangeP.innerHTML = range;
     linkP.href = link;
-    console.log(titleP.innerHTML);
+    if (link == "")
+    {
+      visitP.innerHTML = ""
+    }
+    else
+    {
+      visitP.innerHTML = "visit this collection >";
+    }
 }
 
 function showAbout(show)
 {
   let about = document.getElementById("about-block");
+  
   if (show)
   {
     about.style.left = "0vw";
+    aboutOpen = true;
   }
   else
   {
     about.style.left = "100vw";
+    aboutOpen = false;
   }
+  rocks.forEach(rock => (rock.active = false));
 }
 
 function windowResized()
@@ -323,6 +363,16 @@ function windowResized()
   cabSize = spacing*columns;
   cabSizeHalf = cabSize*0.5;
 
+  for (i=0;i<rocks.length;i++)
+  {
+    rocks[i].targetPos = createVector(spacing*0.5 + map((i%columns)*spacing, 0, cabSize, -cabSizeHalf, cabSizeHalf), 
+    -windowHeight*0.5 + topPadding +  spacing*0.5+floor(i/columns)*spacing);
+  }
+}
+
+function shuffleRocks()
+{
+  rocks = shuffle(rocks);
   for (i=0;i<rocks.length;i++)
   {
     rocks[i].targetPos = createVector(spacing*0.5 + map((i%columns)*spacing, 0, cabSize, -cabSizeHalf, cabSizeHalf), 
