@@ -111,6 +111,12 @@ canvas {
     left: -10px;
     top: -10px;
     /* margin-top: -10px; */
+    /* IE, only works on <img> tags */
+    -ms-interpolation-mode: nearest-neighbor;
+    /* Firefox */
+    image-rendering: crisp-edges;
+    /* Chromium + Safari */
+    image-rendering: pixelated;
 
 }
 

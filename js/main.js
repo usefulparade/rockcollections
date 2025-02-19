@@ -107,10 +107,11 @@ function setupAsciify(){
 }
 
 function setup() {
-  let c = createCanvas(windowWidth, windowHeight, WEBGL);
-  c.parent("#canv");
 
   // randomSeed(100);
+
+  let c = createCanvas(windowWidth, windowHeight, WEBGL);
+  c.parent("#canv");
 
   columns = floor(constrain((windowWidth / 200), 2, 6));
   spacing = 100;
@@ -158,6 +159,8 @@ function draw() {
     {
       cursor(ARROW);
     }
+
+    // ascii();
 
 }
 
@@ -287,7 +290,7 @@ function mouseClicked()
 {
 
   if (aboutOpen) return;
-  
+
   let rockClicked = false;
   let rockInd = 0;
     for (i=0;i<rocks.length;i++)
@@ -312,6 +315,35 @@ function mouseClicked()
       rocks[rockInd].active = true;
     }
 
+}
+
+function touchEnded()
+{
+  if (aboutOpen) return;
+
+  let rockClicked = false;
+  let rockInd = 0;
+    for (i=0;i<rocks.length;i++)
+    {
+        if (rocks[i].over())
+        {
+          rockClicked = true;
+          rockInd = i;
+          rocks[i].active = true;
+          console.log("rock was clicked!");
+          changeCollectionInfo(
+              rocks[i].collection.title,
+              rocks[i].collection.author,
+              rocks[i].collection.range,
+              rocks[i].collection.link,
+              );
+        }
+    }
+    if (rockClicked)
+    {
+      rocks.forEach(rock => (rock.active = false));
+      rocks[rockInd].active = true;
+    }
 }
 
 function changeCollectionInfo(title,author,range,link)
@@ -378,4 +410,20 @@ function shuffleRocks()
     rocks[i].targetPos = createVector(spacing*0.5 + map((i%columns)*spacing, 0, cabSize, -cabSizeHalf, cabSizeHalf), 
     -windowHeight*0.5 + topPadding +  spacing*0.5+floor(i/columns)*spacing);
   }
+}
+
+function ascii()
+{
+  push();
+  translate(-width/2, -height/2);
+  for (i=0;i<width;i+=10)
+  {
+    for (j=0;j<height;j+=10)
+    {
+      stroke(0);
+      noFill();
+      rect(i,j,10,10);
+    }
+  }
+  pop();
 }
