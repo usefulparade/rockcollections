@@ -67,42 +67,46 @@ let topPadding;
 let cabSize;
 let cabSizeHalf;
 
-let finalOptions = {
-  enabled: true,
-  characters: "o*~ .><'-+^~ ] ><o/\|. ",
-  characterColor: "#000",
-  characterColorMode: 'sampled',
-  backgroundColor: "#FFF",
-  backgroundColorMode: 'fixed',
-  invertMode: false,
-  fontSize: 16,
-  rotationAngle: 0
-};
+let frameRateTracker = 0;
+let edgeDetectionEnabled = true;
+
+// let finalOptions = {
+//   enabled: true,
+//   characters: "o*~ .><'-+^~ ] ><o/\|. ",
+//   characterColor: "#000",
+//   characterColorMode: 'sampled',
+//   backgroundColor: "#FFF",
+//   backgroundColorMode: 'fixed',
+//   invertMode: false,
+//   fontSize: 16,
+//   rotationAngle: 0
+// };
 
 function setupAsciify(){
   p5asciify.fontSize(6);
   
   p5asciify.renderers().get("brightness").update({
-    enabled: finalOptions.enabled,
-    characters: finalOptions.characters,
-    characterColor: finalOptions.characterColor,
-    characterColorMode: finalOptions.characterColorMode,
-    backgroundColor: finalOptions.backgroundColor,
-    backgroundColorMode: finalOptions.backgroundColorMode,
-    invertMode: finalOptions.invertMode,
-    rotationAngle: finalOptions.rotationAngle
+    enabled: true,
+    characters: "o*~ .><'-+^~ ] ><o/\|. ",
+    characterColor: "#000",
+    characterColorMode: 'sampled',
+    backgroundColor: "#FFF",
+    backgroundColorMode: 'fixed',
+    invertMode: false,
+    fontSize: 16,
+    rotationAngle: 0
   });
   
   p5asciify.renderers().get("edge").update({
-        enabled: true,
-        characters: "-/|\\-/|\\",
-        characterColor: "#AAA",
-        characterColorMode: "fixed",
-        backgroundColor: "#FFF",
-        backgroundColorMode: "fixed",
-        invertMode: false,
-        sobelThreshold: 0.01,
-        sampleThreshold: 16,
+    enabled: true,
+    characters: "-/|\\-/|\\",
+    characterColor: "#666",
+    characterColorMode: "fixed",
+    backgroundColor: "#FFF",
+    backgroundColorMode: "fixed",
+    invertMode: false,
+    sobelThreshold: 0.01,
+    sampleThreshold: 16,
   });
 }
 
@@ -124,9 +128,7 @@ function setup() {
   
   for (i=0; i<collections.length; i++)
     {
-        let newRock = new Rock(
-            spacing*0.5 + map((i%columns)*spacing, 0, cabSize, -cabSizeHalf, cabSizeHalf), 
-            -windowHeight*0.5 + topPadding +  spacing*0.5+floor(i/columns)*spacing);
+        let newRock = new Rock(0,0);
     
         newRock.collection = collections[i];
         rocks.push(newRock);
@@ -136,6 +138,7 @@ function setup() {
         rocks[i].create();
         rocks[i].show();
     }
+  rockColumnSolver();
   
 }
 
@@ -162,6 +165,29 @@ function draw() {
 
     // ascii();
 
+    if (frameRate() < 10)
+    {
+      frameRateTracker++;
+    }
+    else
+    {
+      frameRateTracker = 0;
+      // console.log("edge detection turned on");
+      // p5asciify.renderers().get("edge").update({
+      //   enabled: true,
+      // });
+    }
+
+    if (frameRateTracker > 5 && edgeDetectionEnabled)
+    {
+      console.log("edge detection turned off due to low framerates");
+      edgeDetectionEnabled = false;
+      // p5asciify.renderers().enable(true);
+      p5asciify.renderers().get("edge").update({
+        enabled: false,
+      });
+    }
+
 }
 
 function mousePressed()
@@ -183,13 +209,17 @@ function Rock(x, y){
   this.active = false;
   this.over = function()
   {
-    if (mouseX-width/2 > this.pos.x-this.r && 
+    if (!touches[0])
+    {
+      if  (mouseX-width/2 > this.pos.x-this.r && 
         mouseX-width/2 < this.pos.x+this.r && 
         mouseY-height/2 > this.pos.y-this.r && 
         mouseY-height/2 < this.pos.y+this.r)
       {
         return true;
-      }
+      } 
+    }
+      
     else if (touches[0] && touches[0].x-width/2 > this.pos.x-this.r && 
              touches[0].x-width/2 < this.pos.x+this.r && 
              touches[0].y-height/2 > this.pos.y-this.r && 
@@ -242,7 +272,7 @@ function Rock(x, y){
     if (this.over())
       {
         this.rotationMod+=0.05;
-        this.scaleMod = 1.2;
+        this.scaleMod = 1.1;
         
         if (click)
           {
@@ -330,7 +360,6 @@ function touchEnded()
           rockClicked = true;
           rockInd = i;
           rocks[i].active = true;
-          console.log("rock was clicked!");
           changeCollectionInfo(
               rocks[i].collection.title,
               rocks[i].collection.author,
@@ -344,6 +373,8 @@ function touchEnded()
       rocks.forEach(rock => (rock.active = false));
       rocks[rockInd].active = true;
     }
+
+    touches[0] = createVector(-width/2, -height/2);
 }
 
 function changeCollectionInfo(title,author,range,link)
@@ -375,11 +406,13 @@ function showAbout(show)
   if (show)
   {
     about.style.left = "0vw";
+    about.style.opacity = "1";
     aboutOpen = true;
   }
   else
   {
     about.style.left = "100vw";
+    about.style.opacity = "0";
     aboutOpen = false;
   }
   rocks.forEach(rock => (rock.active = false));
@@ -389,7 +422,13 @@ function windowResized()
 {
   resizeCanvas(windowWidth, windowHeight);
 
-  columns = floor(constrain((windowWidth / 200), 2, 6));
+  rockColumnSolver();
+  
+}
+
+function rockColumnSolver()
+{
+  columns = floor(constrain((windowWidth / 200), 3, 6));
   spacing = 100;
   topPadding = 100;
   cabSize = spacing*columns;
