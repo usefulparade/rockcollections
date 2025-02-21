@@ -55,7 +55,122 @@ let collections = [
         author:"Emily Fuhrman",
         range:"May 2014-2016",
         link:"https://emilyfuhrman.co/interactive/Y2014002/"
+    },
+    {
+      title:"A collection of scans from my mom and uncle's stamp collection",
+      author:"Vidya Giri",
+      range:"1960s-1990s",
+      link:"https://stamps.vidyagiri.com/"
+    },
+    {
+      title:"A collection of dudes with doves",
+      author:"Karla Krey",
+      range:"2023–present",
+      link:"https://www.are.na/karla-krey/dudes-with-doves"
+    },
+    {
+      title:"A collection of intentional and stream of consciousness lists for various aspects of my life",
+      author:"Amaryllis Ara",
+      range:"1960s-1990s",
+      link:""
+    },
+    {
+      title:"A collection of sacred invocations and memefied musings on the internet space.",
+      author:"Prayer on the Internet",
+      range:"2023-present",
+      link:"https://www.are.na/marshall-wang/prayer-on-the-internet"
+    },
+    {
+      title:"A collection of urinals I've used.",
+      author:"Ashton Reeder",
+      range:"2023-present",
+      link:""
+    },
+    {
+      title:"A collection of pictures of computer screens",
+      author:"Rachael Previti",
+      range:"2024-present",
+      link:"https://drive.google.com/drive/folders/1zfa1hbGTCpfltIM-NQ_qmXV-SM0eU1gm?usp=sharing"
+    },
+    {
+      title:"typography",
+      author:"@type.gram",
+      range:"2019-present",
+      link:"https://www.instagram.com/type.gram/"
+    },
+    {
+      title:"A collection of lost Chinese feminist websites from before social media took over - kind of like digital ghosts of what feminist spaces on the Chinese internet used to look like in the early 2000s",
+      author:"ephemeral:data\ (Crassula Shang, i-want-cookies, and YoEve)",
+      range:"2023-present",
+      link:"https://chinese-cyberfeminism-archive.com/"
+    },
+    {
+      title:"A collection of visual fragments - diagrams, images, and graphic elements - gathered from materials in the Cybernetics Library",
+      author:"cha.ski",
+      range:"2024-present",
+      link:"https://cyberneticsimagelibrary.netlify.app/"
+    },
+    {
+      title:"A collection of songs that have captured the vibes of specific days in my life",
+      author:"mk zariel",
+      range:"2025 onward",
+      link:"https://open.spotify.com/playlist/5EVVes9QqhUriZ8NiCM6hb?si=b8927efd96f844de"
+    },
+    {
+      title:"A collection of people selling old tvs",
+      author:"Kiko_ Tv for sale",
+      range:"2021-present",
+      link:"https://www.are.na/gio-kikoria-5ofhwxzjrc0/ree40esscps"
+    },
+    {
+      title:"A collection of good morning images and quotes from my family WhatsApp groups",
+      author:"Marina Cardoso",
+      range:"2020-present",
+      link:""
+    },
+    {
+      title:"A collection of personal episode rankings and data points for Star Trek: The Next Generation",
+      author:"Lucia Gomez",
+      range:"2024-present",
+      link:"https://deciduous-ring-e37.notion.site/10b00f12549080e08d90c0ddc00bdeac?v=10b00f12549080788a10000c93ce9250"
+    },
+    {
+      title:"A collection of notes app drawings that i drew with my finger while on long phone conversations—primarily with my friend malia.",
+      author:"christine (cynical pinay)",
+      range:"2020-present",
+      link:"https://drive.google.com/drive/folders/1-Yz2j05CI_Co0ysXwYHIlJe5LsDtE2f9?usp=sharing"
+    },
+    {
+      title:"A collection of google maps user submitted photos of grocery stores",
+      author:"Vanessa Anderson",
+      range:"2024-present",
+      link:"https://grocerygoblin.substack.com/p/25-grocery-stores"
+    },
+    {
+      title:"A collection of 11:11",
+      author:"Amelia K.",
+      range:"2022-present",
+      link:""
+    },
+    {
+      title:"A collection of google maps user submitted photos of grocery stores",
+      author:"Vanessa Anderson",
+      range:"2024-present",
+      link:"https://grocerygoblin.substack.com/p/25-grocery-stores"
+    },
+    {
+      title:"A collection of internet comments",
+      author:"Spencer Chang",
+      range:"2024-present",
+      link:"https://acknowledge.our-inter.net/"
+    },
+    {
+      title:"A collection of typefaces and fonts I've used for many projects over the years. Some are good, some are bad, and some are just ok.",
+      author:"Jonathan Sangster",
+      range:"2021-2025",
+      link:"https://drive.google.com/drive/folders/1Oqg2mfic30gx6S7lfeWfA-qosVWYhhGB?usp=sharing"
     }
+
 ]
 
 let rocks = [];
