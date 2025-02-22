@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-   
+    <meta charset="utf-8" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5.asciify@0.7.4/dist/p5.asciify.umd.js"></script>
-    
+
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <meta charset="utf-8" />
-    <!-- <script src="js/p5.js"></script> -->
+
+    <script src="js/collections.js"></script>
     <script src="js/main.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.0/tablesort.min.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
 
   </head>
   <body onload="changeCollectionInfo(
@@ -29,7 +31,8 @@
                 about.range,
                 about.link); showAbout(false); showAbout(true);">about</a>
               + <a target="_blank" href="https://blairhereandthere.notion.site/193295295861806b9415f3fd894a5a23">submit</a>
-              + <a href="#" onclick="shuffleRocks();">shuffle</a></h2>
+              + <a href="#" onclick="shuffleRocks();">shuffle</a>
+              + <a href="#" onclick="toggleMode();" id="mode">mode: ascii</a></h2>
           </div>
             <div class="nav-title">
               
@@ -50,7 +53,24 @@
             </div>
         </div>
     </main>
-    <div class="canv" id="canv">
+    <div class="canv-area">
+      <div class="text-mode-table" id="text-mode-table">
+        <table id="contributors" class="tablesorter">
+          <thead>
+              <tr data-sort-method="none">
+                  <th aria-sort="ascending">name</th>
+                  <th>collection</th>
+                  <th>date</th>
+                  <th data-sort-method="none">link</th>
+                  <th>method</th>
+              </tr>
+          </thead>
+          <tbody id="table-body">
+            
+          </tbody>
+        </table>
+      </div>
+
       <div class="about" id="about-block">
         <p><a href="#" onclick="showAbout(false)">close ></a></p>
         
@@ -68,6 +88,9 @@
         <h2><b>send us your collection</b></h2>
         <p>Do you have a digital collection? A folder of highly specific screenshots? A typed list in a note on your phone? Submit to Rock Collections, a site where you can comb through the digital things that other people hold on to.</p>
         <p>What do you collect from digital spaces? How do you collect it? Is it a folder of screenshots? A typed list in a note on your phone? A pile of images on your desktop? A hand-coded website? A spreadsheet of links? An are.na channel or Pinterest board? A pile of post-it notes of handwritten urls?</p>
+      </div>
+
+      <div class="canv" id="canv">
       </div>
     </div>
   </body>
