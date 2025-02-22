@@ -42,7 +42,7 @@ let collections = [
         title:"A collection of stills from Ratatouille (2007)",
         author:"eastmountain",
         range:"May 2021",
-        link:"./collections/eastmountain.html/"
+        link:"./collections/eastmountain.html"
     },
     {
         title:"A collection of every data graphic in Star Trek",
