@@ -5,6 +5,9 @@ let about = {
     link:""
 }
 
+let code = [38, 38, 40, 40, 37, 39];
+let keysTyped = [];
+
 let aboutOpen = false;
 
 let rocks = [];
@@ -15,14 +18,20 @@ let spacing;
 let topPadding;
 let cabSize;
 let cabSizeHalf;
+let rows;
+let canvHeight;
 
 let frameRateTracker = 0;
 let edgeDetectionEnabled = true;
 let mode = 0;
 let modes = ['ascii', 'text'];
-// let modes = ['ascii', 'text', 'pixel'];
 
 let sort;
+
+let attractmode = false;
+
+let attractInterval = 30;
+let attractTimer = 1;
 
 function setupAsciify(){
   p5asciify.fontSize(6);
@@ -52,19 +61,25 @@ function setupAsciify(){
   });
 }
 
+function preload()
+{
+  columns = floor(constrain((windowWidth / 200), 3, 6));
+  spacing = 100;
+  topPadding = 60;
+  cabSize = spacing*columns;
+  cabSizeHalf = cabSize*0.5;
+  click = false;
+  rows = collections.length / columns;
+  canvHeight = constrain((200 + (rows * spacing)), windowHeight*0.8, windowHeight*5);
+  console.log(rows);
+}
+
 function setup() {
 
   randomSeed(101);
 
-  let c = createCanvas(windowWidth, windowHeight, WEBGL);
+  let c = createCanvas(windowWidth, canvHeight, WEBGL);
   c.parent("#canv");
-
-  columns = floor(constrain((windowWidth / 200), 2, 6));
-  spacing = 100;
-  topPadding = 100;
-  cabSize = spacing*columns;
-  cabSizeHalf = cabSize*0.5;
-  click = false;
 
   collections = shuffle(collections);
   
@@ -80,7 +95,9 @@ function setup() {
       rocks[i].create();
       rocks[i].show();
     }
+
   rockColumnSolver();
+  document.getElementById('canv').style.height = "" + canvHeight + "px";
   populateTable();
   sort = new Tablesort(document.getElementById('contributors'));
   
@@ -111,6 +128,12 @@ function draw() {
       }
       
   }
+
+  if (attractmode)
+  {
+    DoAttractMode();
+  }
+
 }
 
 function mousePressed()
@@ -260,6 +283,11 @@ function mouseClicked()
         rocks[i].collection.range,
         rocks[i].collection.link,
         );
+
+      if (attractmode)
+      {
+        window.open(rocks[i].collection.link, "newwindow", "top=0, left=0");
+      }
     }
   }
   if (rockClicked)
@@ -344,35 +372,33 @@ function showAbout(show)
 
 function windowResized()
 {
-  resizeCanvas(windowWidth, windowHeight);
-
   rockColumnSolver();
-    
+  resizeCanvas(windowWidth, canvHeight);
+  document.getElementById('canv').style.height = "" + canvHeight + "px";
+  console.log(canvHeight);
+
 }
 
 function rockColumnSolver()
 {
   columns = floor(constrain((windowWidth / 200), 3, 6));
-  spacing = 100;
-  topPadding = 100;
   cabSize = spacing*columns;
   cabSizeHalf = cabSize*0.5;
+  rows = rocks.length / columns;
+  canvHeight = constrain((200 + (rows * spacing)), windowHeight*0.8, windowHeight*5);
 
   for (i=0;i<rocks.length;i++)
   {
-    rocks[i].targetPos = createVector(spacing*0.5 + map((i%columns)*spacing, 0, cabSize, -cabSizeHalf, cabSizeHalf), 
-    -windowHeight*0.5 + topPadding +    spacing*0.5+floor(i/columns)*spacing);
+    rocks[i].targetPos = createVector(
+      spacing*0.5 + map((i%columns)*spacing, 0, cabSize, -cabSizeHalf, cabSizeHalf), 
+      -canvHeight*0.5 + topPadding + spacing*0.5+floor(i/columns)*spacing);
   }
 }
 
 function shuffleRocks()
 {
   rocks = shuffle(rocks);
-  for (i=0;i<rocks.length;i++)
-  {
-    rocks[i].targetPos = createVector(spacing*0.5 + map((i%columns)*spacing, 0, cabSize, -cabSizeHalf, cabSizeHalf), 
-    -windowHeight*0.5 + topPadding +    spacing*0.5+floor(i/columns)*spacing);
-  }
+  rockColumnSolver();
 }
 
 function toggleMode()
@@ -410,8 +436,6 @@ function toggleMode()
     p5asciify.renderers().disable();
     pixelDensity(0.25);
   }
-
-    
     
 }
 
@@ -434,5 +458,42 @@ function disableAsciiOnFramerate()
         enabled: false,
     });
   } 
+}
+
+function keyReleased()
+{
+  keysTyped.push(keyCode)
+  if (keysTyped.length > 6)
+  {
+    keysTyped.splice(0,1);
+  }
+
+  if (keysTyped.length === code.length && keysTyped.every(function(value, index) { return value === code[index]}))
+  {
+    attractmode = !attractmode;
+  }
+}
+
+function DoAttractMode()
+{
+  if (attractTimer > 0)
+  {
+    attractTimer -= deltaTime*0.001;
+  }
+  else
+  {
+    shuffleRocks();
+    attractTimer = attractInterval;
+    for (i=0;i<rocks.length;i++)
+    {
+      rocks[i].active = false;
+      rocks[i].scaleMod = 1;
+    }
+
+    let choice = round(random(rocks.length));
+    rocks[choice].active = true;
+    rocks[choice].scaleMod = 1.1;
+    window.open(rocks[choice].collection.link, "newwindow", "top=0, left=0");
+  }
 }
 
