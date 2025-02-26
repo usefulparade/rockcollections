@@ -5,6 +5,35 @@
   gap: 20px;
 }
 
+header {
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+table {
+  width: 96%;
+  box-sizing: content-box;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: 'ibm-extralight', monospace;
+  font-size: 0.75em;
+  table-layout: auto;
+  margin: 2%;
+  overflow-x: auto;
+}
+
+th, td {
+  padding: 4px;
+  text-align: left;
+}
+
+th {
+  font-weight: inherit;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
 img {
   max-width: 300px;
   height: auto;

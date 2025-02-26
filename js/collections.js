@@ -72,7 +72,7 @@ let collections = [
     {
       title:"A collection of intentional and stream of consciousness lists for various aspects of my life",
       author:"Amaryllis Ara",
-      range:"1960s-1990s",
+      range:"2022-present",
       link:"",
       method:"In my notes app. I continuously add to ongoing lists and intuitively create lists based on what pops into my head at the moment."
     },
