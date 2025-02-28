@@ -321,6 +321,34 @@ let collections = [
       link:"https://drive.google.com/drive/folders/1nWkuRquqJn6Ryiov0wqTmt16LBhWHcX7?usp=sharing",
       method:"I added any image that captured the bewildering nature of 2020, some are images from the web, most are screenshots I nabbed, some are my own artworks & experiences from that time."
     },
+    {
+      title:"A collection of people's hands that I've climbed with before",
+      author:"hands on hands on hands",
+      range:"2024–present",
+      link:"https://rizqyazed.github.io/handshandshands/",
+      method:"I take a picture of them using my iPhone, which I then hand code into a website using HTML and CSS."
+    },
+    {
+      title:"A collection of naming",
+      author:"Cindy Hwang",
+      range:"2018–present",
+      link:"https://www.are.na/cindy-hwang/naming-tmgoke2r-yk",
+      method:"are.na"
+    },
+    {
+      title:"A collection of Things On Cement",
+      author:"Jeanette Andrews",
+      range:"2017–present",
+      link:"https://www.instagram.com/things.on.cement/",
+      method:"seeing a Thing On Cement, taking a picture, posting it to instagram"
+    },
+    {
+      title:"A collection of Spam mail",
+      author:"SPAM (Sociedad Para Archivar Mail)",
+      range:"2021– ",
+      link:"https://sociedad-para-archivar-mail.tumblr.com/?fbclid=PAZXh0bgNhZW0CMTEAAaaDmWKpIrFensLorVHoZmJAGFsywDwGwvtp6qzmvUnmJVBPQjDY17D0bK4_aem_jNnd_Wj88jX0NEZlPolU9A",
+      method:"Screenshots in a folder. For a while I started posting them to a Tumblr blog and Instagram profile, also inviting people to send screenshots of their spam email. "
+    },
 ]
 
 
