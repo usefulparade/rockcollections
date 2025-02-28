@@ -23,8 +23,8 @@ let collections = [
     {
         title:"A collection of every officially licensed mew and mewtwo plush",
         author:"Kyle Robateau",
-        range:"2024 – present",
-        link:"collections/robateau-plushes.pdf",
+        range:"2024–present",
+        link:"collections/kylerobateau.html",
         method:"I organize it in a google speadsheet, cross-referencing info on various websites and copying + pasting images."
     },
     {
@@ -87,7 +87,7 @@ let collections = [
       title:"A collection of urinals I've used.",
       author:"Ashton Reeder",
       range:"2023-present",
-      link:"",
+      link:"collections/ashtonreeder.html",
       method:"photo of every urinal i've used in the last 3 years."
     },
     {
@@ -136,7 +136,7 @@ let collections = [
       title:"A collection of good morning images and quotes from my family WhatsApp groups",
       author:"Marina Cardoso",
       range:"2020-present",
-      link:"",
+      link:"collections/cardoso.html",
       method:"downloading the files and saving them to a folder on my computer"
     },
     {
@@ -164,7 +164,7 @@ let collections = [
       title:"A collection of 11:11",
       author:"Amelia K.",
       range:"2022-present",
-      link:"",
+      link:"collections/ameliak.html",
       method:"screenshots"
     },
     {
@@ -206,14 +206,14 @@ let collections = [
       title:"A collection/archive of strip club signage and ephemera from the pandemic.",
       author:"Dahlia Bloomstone",
       range:"2023–present",
-      link:"",
+      link:"collections/dahliabloomstone.html",
       method:"I collect by continually searching 'strip club signage and ephemera from the pandemic' every few weeks and screenshotting and saving the images to my desktop in a folder titled 'Little Darlings.' I also edit the images at times. I will submit a few images that represent the collection, with an original image and two edited images."
     },
     {
       title:"A collection of online articles on AI' screeshots",
       author:"Radomic-Snapshotted: Flânering Readings’ Memoir",
       range:"2022–present",
-      link:"",
+      link:"collections/randomic.html",
       method:"screenshotting The New York Times articles on Tech and AI and saving to a folder"
     },
     {
@@ -227,7 +227,7 @@ let collections = [
       title:"A collection of my favorite memes",
       author:"Kelci D Crawford",
       range:"2011-2017",
-      link:"",
+      link:"collections/kelcidcrawford.html",
       method:"I save the file into a folder on my external hard drive."
     },
     {
@@ -241,7 +241,7 @@ let collections = [
       title:"A collection of inspiration sparkers for writing",
       author:"Djahane",
       range:"early 2010s–present",
-      link:"",
+      link:"collections/djahane.html",
       method:"screenshots, photos I took, copy paste the line from an online text (eg: a tumblr post or an academic reading) into a document. everything is sorted into folders and documents depending by their theme/characteristics (eg: character building, world building, story prompts etc...)"
     },
     {
@@ -255,7 +255,7 @@ let collections = [
       title:"A collection of Kakaotalk(Korean Whatsup) profile pictures I decorated throughout the years!",
       author:"JUNOS",
       range:"2024–2025",
-      link:"",
+      link:"collections/junos.html",
       method:"Screenshot and saving it to my photo album"
     },
     {
@@ -272,7 +272,55 @@ let collections = [
       link:"https://www.are.na/dani-bloop/wi-fi-names-out-in-the-world",
       method:"are.na channel"
     },
-
+    {
+      title:"A collection of 1-star yelp reviews of the statue of liberty",
+      author:"Jamie Brew",
+      range:"2009–2025",
+      link:"collections/jamiebrew.html",
+      method:"Clicked through pages of Yelp reviews of the Statue of Liberty filtered by star rating.Copied and pasted into VS Code, manually removed names, dates and other metadata. First batch collected in February 2016. Second batch collected in February 2025."
+    },
+    {
+      title:"A collection of Singing Cat Videos, specifically a singing orange cat named Bao Zi",
+      author:"@small___lady",
+      range:"2023–present",
+      link:"collections/smalllady.html",
+      method:"A saved folder on Instagram"
+    },
+    {
+      title:"A collection of books I've once owned, now all living together in the cloud",
+      author:"Tuan Huang",
+      range:"2018–2024",
+      link:"https://tuan-garden.com/",
+      method:"I used to keep a spreadsheet of books I've once owned, then built a front and back-end for the archive out of the spreadsheet."
+    },
+    {
+      title:"A collection of 'Online' or, 'Computerisms' of images related to the web/technology in a wacky/campy like ephemra",
+      author:"Luna Davis",
+      range:"2022–present",
+      link:"https://www.pinterest.com/diiscohell/online/",
+      method:"When I'm searching for inspiration or ideas related to technology, cyber punk, or just weird technology I go on Pinterest to search for it an collect it."
+    },
+    {
+      title:"A collection of memes sourced from argentinian cyberspace",
+      author:"Pilar Larriera",
+      range:"2020–present",
+      link:"https://marea.neocities.org/a/argenmemetica/",
+      method:"i either download or screenshot the memes i reference the most to have at hand when i need them. they are usually scattered throughout different corners of my phone's gallery, so i aggregated all of them in a folder and made a little webpage to showcase them in one place."
+    },
+    {
+      title:"A collection of animitas - roadside shrines - in the Tarapacá region of northern Chile.",
+      author:"Jakub Fiala",
+      range:"2019–present",
+      link:"https://drive.google.com/drive/folders/193Q-3UojuA3vXtrT9E2WFv2qKR9FPaM-?usp=sharing",
+      method:"Screenshotting from Google Street view and marking on a custom google map."
+    },
+    {
+      title:"A collection of screenshots, memes and artworks captured in 2020 in Seattle, while living just outside of CHOP.",
+      author:"Meghan Thréinfhir (née Trainor)",
+      range:"2020 only",
+      link:"https://drive.google.com/drive/folders/1nWkuRquqJn6Ryiov0wqTmt16LBhWHcX7?usp=sharing",
+      method:"I added any image that captured the bewildering nature of 2020, some are images from the web, most are screenshots I nabbed, some are my own artworks & experiences from that time."
+    },
 ]
 
 
