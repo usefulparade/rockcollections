@@ -24,7 +24,7 @@ let canvHeight;
 let frameRateTracker = 0;
 let edgeDetectionEnabled = true;
 let mode = 0;
-let modes = ['ascii', 'text'];
+let modes = ['ascii', 'text', 'pixel'];
 
 let sort;
 
@@ -32,6 +32,7 @@ let attractmode = false;
 
 let attractInterval = 30;
 let attractTimer = 1;
+let canvScrollElt;
 
 function setupAsciify(){
   p5asciify.fontSize(6);
@@ -63,6 +64,10 @@ function setupAsciify(){
 
 function preload()
 {
+  
+}
+
+function setup() {
   columns = floor(constrain((windowWidth / 200), 3, 6));
   spacing = 100;
   topPadding = 60;
@@ -70,17 +75,14 @@ function preload()
   cabSizeHalf = cabSize*0.5;
   click = false;
   rows = collections.length / columns;
-  canvHeight = constrain((200 + (rows * spacing)), windowHeight*0.8, windowHeight*5);
+  canvHeight = constrain((200 + (rows * spacing)), windowHeight*0.8, 3200);
   console.log(rows);
-}
-
-function setup() {
-
-  randomSeed(101);
+  // randomSeed(101);
 
   let c = createCanvas(windowWidth, canvHeight, WEBGL);
   c.parent("#canv");
 
+  pixelDensity(2);
   collections = shuffle(collections);
   
   for (i=0; i<collections.length; i++)
@@ -100,12 +102,14 @@ function setup() {
   document.getElementById('canv').style.height = "" + canvHeight + "px";
   populateTable();
   sort = new Tablesort(document.getElementById('contributors'));
+
+  canvScrollElt = document.getElementById("canv-scroll");
   
 }
 
 function draw() {
-  background(240);
 
+  background(240);
   if (mode != 1){
       
     var changeCursor = false;
@@ -134,11 +138,17 @@ function draw() {
     DoAttractMode();
   }
 
+  disableAsciiOnFramerate();
+
 }
 
 function mousePressed()
 {
-  click = true;
+  if (mouseY >= canvScrollElt.scrollTop)
+  {
+    click = true;
+  }
+  
 }
 
 function mouseReleased()
@@ -264,6 +274,8 @@ function Rock(x, y){
 function mouseClicked()
 {
 
+  if (mouseY < canvScrollElt.scrollTop) return;
+  if (touches[0] && touches[0].y < canvScrollElt.scrollTop) return;
   if (mode == 1) return;
   if (aboutOpen) return;
 
@@ -417,7 +429,11 @@ function toggleMode()
     modeToggle.innerHTML = "mode: " + modes[mode];
     pixelDensity(2);
     p5asciify.renderers().get("brightness").enable();
-    p5asciify.renderers().get("edge").enable();
+    if (edgeDetectionEnabled)
+    {
+      p5asciify.renderers().get("edge").enable();
+    }
+    
   }
   else if (mode == 1)
   {
@@ -436,7 +452,6 @@ function toggleMode()
     p5asciify.renderers().disable();
     pixelDensity(0.25);
   }
-    
 }
 
 function disableAsciiOnFramerate()
@@ -450,7 +465,7 @@ function disableAsciiOnFramerate()
     frameRateTracker = 0;
   }
 
-  if (frameRateTracker > 5 && edgeDetectionEnabled)
+  if (frameRateTracker > 20 && edgeDetectionEnabled)
   {
     console.log("edge detection turned off due to low framerates");
     edgeDetectionEnabled = false;
