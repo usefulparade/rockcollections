@@ -276,7 +276,7 @@ let collections = [
       title:"A collection of 1-star yelp reviews of the statue of liberty",
       author:"Jamie Brew",
       range:"2009–2025",
-      link:"collections/jamiebrew.html",
+      link:"collections/JamieBrew.html",
       method:"Clicked through pages of Yelp reviews of the Statue of Liberty filtered by star rating.Copied and pasted into VS Code, manually removed names, dates and other metadata. First batch collected in February 2016. Second batch collected in February 2025."
     },
     {
