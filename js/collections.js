@@ -322,8 +322,8 @@ let collections = [
       method:"I added any image that captured the bewildering nature of 2020, some are images from the web, most are screenshots I nabbed, some are my own artworks & experiences from that time."
     },
     {
-      title:"A collection of people's hands that I've climbed with before",
-      author:"hands on hands on hands",
+      title:"A collection of hands on hands on hands",
+      author:"anonymous hands collected by rizq",
       range:"2024–present",
       link:"https://rizqyazed.github.io/handshandshands/",
       method:"I take a picture of them using my iPhone, which I then hand code into a website using HTML and CSS."
@@ -348,6 +348,55 @@ let collections = [
       range:"2021– ",
       link:"https://sociedad-para-archivar-mail.tumblr.com/?fbclid=PAZXh0bgNhZW0CMTEAAaaDmWKpIrFensLorVHoZmJAGFsywDwGwvtp6qzmvUnmJVBPQjDY17D0bK4_aem_jNnd_Wj88jX0NEZlPolU9A",
       method:"Screenshots in a folder. For a while I started posting them to a Tumblr blog and Instagram profile, also inviting people to send screenshots of their spam email. "
+    },
+    {
+      title:"A collection of art world rejection data entries of an average artist",
+      author:"Jaye Cho",
+      range:"2003–present/mostly 2020-present",
+      link:"https://sociedad-para-archivar-mail.tumblr.com/?fbclid=PAZXh0bgNhZW0CMTEAAaaDmWKpIrFensLorVHoZmJAGFsywDwGwvtp6qzmvUnmJVBPQjDY17D0bK4_aem_jNnd_Wj88jX0NEZlPolU9A",
+      method:"I applied to open calls and grants, each application takes days if not weeks to complete. I also applied to random jobs whenever I have existential criss at night. All these from the past years became my rejections collection. To make it more readable as data, I've organized each rejection email screenshots and physical letters in to a CV format."
+    },
+    {
+      title:"A collection of paypal's partners' privacy policies",
+      author:"Isaac Rhett",
+      range:"2003–present/mostly 2020-present",
+      link:"https://gist.github.com/izcet/7dc1d77046378c767d688f9415f03029",
+      method:"trying to follow the legitimate path of opting-out of unnecessary advertising tracking, I saved the list of the partners they openly connect with and filtered it for clarity"
+    },
+    {
+      title:"A collection of shadows of life and living things with timestamps",
+      author:"Victoria Levchenko",
+      range:"2016–",
+      link:"https://www.are.na/victoria-levchenko/shadows-of-life-and-the-living-collection",
+      method:"adding into a folder—sporadically—misplacing or not labeling"
+    },
+    {
+      title:"A collection of Open Calls for artist residencies and exhibitions",
+      author:"Suraj Barthy",
+      range:"2024 and ongoing",
+      link:"https://docs.google.com/spreadsheets/d/1gFUaojLgFjLuxL4ZkS6wJdPVp15TnFvkJVZe5gD1pFw/edit?usp=sharing",
+      method:"I have made my Instagram algorithm show me open calls on my Explore page. I save them to a collection on Instagram (shared as a video and screenshot) and then add them to a Google sheet at the end of each week or so (shared as .xlsx and .pdf) and make a page for each based on the application dates so I can go back and apply to them, and then add them to my calendar (not shared)"
+    },
+    {
+      title:"A collection of stickers from around New York city",
+      author:"Andrés Cuervo",
+      range:"July 9, 2024–March 1, 2025",
+      link:"https://www.are.na/andres-cuervo/stickers-18cztgjpiz4",
+      method:"I take a picture of them, add them to this Are.na channel, and add metadata like where I saw it & alt text describing the stickers."
+    },
+    {
+      title:"A collection of coordinates of roadkill—lives sacrificed for the current automotive-focused vision of human transit—for whom I burned digital incense during my commutes",
+      author:"alice x tang",
+      range:"July 9, 2024–March 1, 2025",
+      link:"https://drive.google.com/drive/folders/15Ggl39Bb3HDpRSqqs_UW3SruS7FVOBDx?usp=sharing",
+      method:"2024–present."
+    },
+    {
+      title:"A collection of substrates",
+      author:"Eileen Ramos",
+      range:"2024–present",
+      link:"https://leaflet.pub/541e7b1c-1683-4f3b-8bcf-410f62dfc7ab",
+      method:"This is a collection of objects I bought, usually thrifted, and the possible project ideas that do not totally coincide with their original purpose, plus any interesting open calls that transform physical items. I take photos of the objects and use the leaflet app website to post them, and provide their image descriptions and bullet point list their possibilities."
     },
 ]
 
