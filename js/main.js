@@ -22,9 +22,9 @@ let rows;
 let canvHeight;
 
 let frameRateTracker = 0;
-let edgeDetectionEnabled = true;
+// let edgeDetectionEnabled = true;
 let mode = 0;
-let modes = ['ascii', 'text', 'pixel'];
+let modes = ['ascii', 'text'];
 
 let sort;
 
@@ -34,12 +34,16 @@ let attractInterval = 30;
 let attractTimer = 1;
 let canvScrollElt;
 
+let rockGenerationTimer = 0;
+let rockGenerationInterval = 1;
+let rockCounter = 0;
+
 function setupAsciify(){
   p5asciify.fontSize(6);
   
   p5asciify.renderers().get("brightness").update({
     enabled: true,
-    characters: "o*~ .><'-+^~ ] ><o/\|. ",
+    characters: "*~><'-+^~ ] ><o/\|. ",
     characterColor: "#000",
     characterColorMode: 'sampled',
     backgroundColor: "#FFF",
@@ -48,27 +52,24 @@ function setupAsciify(){
     fontSize: 16,
     rotationAngle: 0
   });
-  
-  p5asciify.renderers().get("edge").update({
-    enabled: true,
-    characters: "-/|\\-/|\\",
-    characterColor: "#666",
-    characterColorMode: "fixed",
-    backgroundColor: "#FFF",
-    backgroundColorMode: "fixed",
-    invertMode: false,
-    sobelThreshold: 0.01,
-    sampleThreshold: 16,
-  });
-}
 
-function preload()
-{
+  // edge detection looked cool but slowed everything down so bad!!
   
+  // p5asciify.renderers().get("edge").update({
+  //   enabled: false,
+  //   characters: "-/|\\-/|\\",
+  //   characterColor: "#666",
+  //   characterColorMode: "fixed",
+  //   backgroundColor: "#FFF",
+  //   backgroundColorMode: "fixed",
+  //   invertMode: false,
+  //   sobelThreshold: 0.05,
+  //   sampleThreshold: 16
+  // });
 }
 
 function setup() {
-  columns = floor(constrain((windowWidth / 200), 3, 6));
+  columns = floor(constrain((windowWidth / 100), 3, 8));  
   spacing = 100;
   topPadding = 60;
   cabSize = spacing*columns;
@@ -84,34 +85,33 @@ function setup() {
 
   pixelDensity(2);
   collections = shuffle(collections);
-  
-  for (i=0; i<collections.length; i++)
-    {
-      let newRock = new Rock(0,0);
 
-      newRock.collection = collections[i];
-      rocks.push(newRock);
-    }
-  for (i=0;i<rocks.length;i++)
-    {
-      rocks[i].create();
-      rocks[i].show();
-    }
+  // for (i=0; i<collections.length; i++)
+  //   {
+  //     let newRock = new Rock(0,0);
+  //     newRock.collection = collections[i];
+  //     rocks.push(newRock);
+  //   }
 
-  rockColumnSolver();
+  // for (i=0;i<rocks.length;i++)
+  //   {
+  //     rocks[i].create();
+  //     rocks[i].show();
+  //   }
+
+  rockColumnSolver(false);
   document.getElementById('canv').style.height = "" + canvHeight + "px";
   populateTable();
   sort = new Tablesort(document.getElementById('contributors'));
-
   canvScrollElt = document.getElementById("canv-scroll");
-  
+
 }
 
 function draw() {
 
   background(240);
   if (mode != 1){
-      
+    
     var changeCursor = false;
     for (i=0;i<rocks.length;i++)
       {
@@ -130,7 +130,9 @@ function draw() {
       {
         cursor(ARROW);
       }
-      
+
+    disableAsciiOnFramerate();
+    steppedRockGenerator();
   }
 
   if (attractmode)
@@ -138,21 +140,23 @@ function draw() {
     DoAttractMode();
   }
 
-  disableAsciiOnFramerate();
+  
 
 }
 
 function mousePressed()
 {
-  if (mouseY >= canvScrollElt.scrollTop)
-  {
-    click = true;
-  }
-  
+  if (mouseY < canvScrollElt.scrollTop) return;
+  if (touches[0] && touches[0].y < canvScrollElt.scrollTop) return;
+  if (mode == 1) return;
+  if (aboutOpen) return;
+
+  click = true;
 }
 
 function mouseReleased()
 {
+
   click = false;
 }
 
@@ -165,28 +169,28 @@ function Rock(x, y){
   this.active = false;
   this.over = function()
   {
-      if (!touches[0])
-      {
-          if    (mouseX-width/2 > this.pos.x-this.r && 
-              mouseX-width/2 < this.pos.x+this.r && 
-              mouseY-height/2 > this.pos.y-this.r && 
-              mouseY-height/2 < this.pos.y+this.r)
-          {
-              return true;
-          } 
-      }
-          
-      else if (touches[0] && touches[0].x-width/2 > this.pos.x-this.r && 
-                        touches[0].x-width/2 < this.pos.x+this.r && 
-                        touches[0].y-height/2 > this.pos.y-this.r && 
-                        touches[0].y-height/2 < this.pos.y+this.r)
-          {
-              return true;             
-          }            
-      else
-          {
-              return false;
-          }
+    if (!touches[0])
+    {
+        if    (mouseX-width/2 > this.pos.x-this.r && 
+            mouseX-width/2 < this.pos.x+this.r && 
+            mouseY-height/2 > this.pos.y-this.r && 
+            mouseY-height/2 < this.pos.y+this.r)
+        {
+          return true;
+        } 
+    }
+        
+    else if (touches[0] && touches[0].x-width/2 > this.pos.x-this.r && 
+            touches[0].x-width/2 < this.pos.x+this.r && 
+            touches[0].y-height/2 > this.pos.y-this.r && 
+            touches[0].y-height/2 < this.pos.y+this.r)
+    {
+      return true;             
+    }            
+    else
+    {
+      return false;
+    }
   }
   this.create = function()
   {
@@ -197,10 +201,10 @@ function Rock(x, y){
       createVector(random(-12,-25),random(-12,-25))
       ];
       this.verts = [
-          createVector(random(-5,5),random(-25,-35)),
-          createVector(random(25,35),random(-5,5)),
-          createVector(random(-5,5),random(25,35)),
-          createVector(random(-25,-35),random(-5,5))
+        createVector(random(-5,5),random(-25,-35)),
+        createVector(random(25,35),random(-5,5)),
+        createVector(random(-5,5),random(25,35)),
+        createVector(random(-25,-35),random(-5,5))
       ];
       this.rgb = [random(0,100), random(0,255), random(0,255)];
       this.randomScale = createVector(random(0.5,1.33),random(0.5,1.33));
@@ -217,8 +221,8 @@ function Rock(x, y){
       this.pos = p5.Vector.lerp(this.pos,this.targetPos,0.2);
     }
 
-    stroke(255);
-    strokeWeight(1);
+    stroke(0);
+    strokeWeight(4);
     if (this.active)
     {
       this.rotationMod+=0.05;
@@ -236,8 +240,8 @@ function Rock(x, y){
       }
     else
       {
-          this.fillMod = 0;
-          this.scaleMod = 1;
+        this.fillMod = 0;
+        this.scaleMod = 1;
       }
   
     push();
@@ -312,6 +316,8 @@ function mouseClicked()
 
 function touchEnded()
 {
+  if (mouseY < canvScrollElt.scrollTop) return;
+  if (touches[0] && touches[0].y < canvScrollElt.scrollTop) return;
   if (mode == 1) return;
   if (aboutOpen) return;
 
@@ -343,6 +349,7 @@ function touchEnded()
 
 function changeCollectionInfo(title,author,range,link)
 {
+  let nav = document.getElementById("nav");
   let titleP = document.getElementById("rock-title");
   let authorP = document.getElementById("rock-author");
   let rangeP = document.getElementById("rock-range");
@@ -353,6 +360,7 @@ function changeCollectionInfo(title,author,range,link)
   authorP.innerHTML = author;
   rangeP.innerHTML = range;
   linkP.href = link;
+
   if (link == "")
   {
     visitP.innerHTML = ""
@@ -361,6 +369,8 @@ function changeCollectionInfo(title,author,range,link)
   {
     visitP.innerHTML = "visit this collection >";
   }
+
+  nav.scrollTo(0, nav.scrollHeight);
 }
 
 function showAbout(show)
@@ -384,33 +394,38 @@ function showAbout(show)
 
 function windowResized()
 {
-  rockColumnSolver();
+  rockColumnSolver(false);
   resizeCanvas(windowWidth, canvHeight);
   document.getElementById('canv').style.height = "" + canvHeight + "px";
   console.log(canvHeight);
 
 }
 
-function rockColumnSolver()
+function rockColumnSolver(imm)
 {
-  columns = floor(constrain((windowWidth / 200), 3, 6));
+  columns = floor(constrain((windowWidth / 100), 3, 8));
   cabSize = spacing*columns;
   cabSizeHalf = cabSize*0.5;
-  rows = rocks.length / columns;
-  canvHeight = constrain((200 + (rows * spacing)), windowHeight*0.8, windowHeight*5);
+  rows = collections.length / columns;
+  canvHeight = constrain((200 + (rows * spacing)), windowHeight*0.8, 3200);
 
   for (i=0;i<rocks.length;i++)
   {
-    rocks[i].targetPos = createVector(
+    let vec = createVector(
       spacing*0.5 + map((i%columns)*spacing, 0, cabSize, -cabSizeHalf, cabSizeHalf), 
       -canvHeight*0.5 + topPadding + spacing*0.5+floor(i/columns)*spacing);
+      rocks[i].targetPos = vec;
+      if (imm)
+      {
+        rocks[i].pos = vec;
+      }
   }
 }
 
 function shuffleRocks()
 {
   rocks = shuffle(rocks);
-  rockColumnSolver();
+  rockColumnSolver(false);
 }
 
 function toggleMode()
@@ -422,24 +437,29 @@ function toggleMode()
   mode = (mode + 1) % modes.length;
   console.log(mode);
 
-  if (mode == 0)
+  if (mode == 0) // ascii mode
   {
     gmcanvas.style.display = "block";
     tmtable.style.display = "none";
     modeToggle.innerHTML = "mode: " + modes[mode];
     pixelDensity(2);
     p5asciify.renderers().get("brightness").enable();
-    if (edgeDetectionEnabled)
-    {
-      p5asciify.renderers().get("edge").enable();
-    }
+    // if (edgeDetectionEnabled)
+    // {
+    //   p5asciify.renderers().get("edge").enable();
+    // }
     
   }
-  else if (mode == 1)
+  else if (mode == 1) // textmode
   {
     gmcanvas.style.display = "none";
     tmtable.style.display = "block";
     modeToggle.innerHTML = "mode: " + modes[mode];
+    for (i=0;i<rocks.length;i++)
+    {
+      rocks[i].active = false;
+    }
+    changeCollectionInfo(about.title,about.author,about.range,about.link);
     p5asciify.renderers().disable();
     sort.refresh();
   }
@@ -465,14 +485,14 @@ function disableAsciiOnFramerate()
     frameRateTracker = 0;
   }
 
-  if (frameRateTracker > 20 && edgeDetectionEnabled)
-  {
-    console.log("edge detection turned off due to low framerates");
-    edgeDetectionEnabled = false;
-    p5asciify.renderers().get("edge").update({
-        enabled: false,
-    });
-  } 
+  // if (frameRateTracker > 20 && edgeDetectionEnabled)
+  // {
+  //   console.log("edge detection turned off due to low framerates");
+  //   edgeDetectionEnabled = false;
+  //   p5asciify.renderers().get("edge").update({
+  //       enabled: false,
+  //   });
+  // } 
 }
 
 function keyReleased()
@@ -510,5 +530,28 @@ function DoAttractMode()
     rocks[choice].scaleMod = 1.1;
     window.open(rocks[choice].collection.link, "newwindow", "top=0, left=0");
   }
+}
+
+function steppedRockGenerator()
+{
+  rockGenerationTimer++;
+
+  if (rockGenerationTimer > rockGenerationInterval)
+  {
+
+    rockGenerationTimer = 0;
+
+    if (rocks.length < collections.length)
+    {
+      let newRock = new Rock(-10000,-10000);
+      newRock.collection = collections[rockCounter];
+      rocks.push(newRock);
+      rocks[rockCounter].create();
+      rocks[rockCounter].show();
+      rockCounter++;
+      rockColumnSolver(true);
+    } 
+  } 
+  
 }
 

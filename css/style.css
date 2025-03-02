@@ -36,15 +36,18 @@ a {
 }
 
 table {
-    width: 96%;
+    display: block;
+    position: relative;
+    /* width: 96%; */
     box-sizing: content-box;
     border-collapse: collapse;
     margin: 20px 0;
     font-family: 'ibm-extralight', monospace;
     font-size: 0.75em;
-    table-layout: auto;
+    table-layout:auto;
     margin: 2%;
-    overflow-x: auto;
+    width: 96vw;
+    overflow: scroll;
 }
 
 th, td {

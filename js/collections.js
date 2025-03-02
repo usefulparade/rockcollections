@@ -417,16 +417,17 @@ function populateTable()
         let d = document.createElement("td");
         let e = document.createElement("td");
 
-        a.innerHTML = preSorted[i].title;
+        // a.innerHTML = preSorted[i].title;
+        a.innerHTML = "<a target='_blank' href='" + preSorted[i].link + "'>" + preSorted[i].title + "</a>";
         b.innerHTML = preSorted[i].author;
         c.innerHTML = preSorted[i].range;
-        d.innerHTML = "<a target='_blank' href='" + preSorted[i].link + "'>visit this collection></a>";
+        // d.innerHTML = "<a target='_blank' href='" + preSorted[i].link + "'>visit this collection></a>";
         e.innerHTML = preSorted[i].method;
         
         row.appendChild(b);
         row.appendChild(a);
         row.appendChild(c);
-        row.appendChild(d);
+        // row.appendChild(d);
         row.appendChild(e);
         tableBody.appendChild(row);
     }       
