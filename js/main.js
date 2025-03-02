@@ -425,6 +425,7 @@ function rockColumnSolver(imm)
 function shuffleRocks()
 {
   rocks = shuffle(rocks);
+  collections = shuffle(collections);
   rockColumnSolver(false);
 }
 

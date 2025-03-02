@@ -44,14 +44,14 @@ table {
     margin: 20px 0;
     font-family: 'ibm-extralight', monospace;
     font-size: 0.75em;
-    table-layout:auto;
+    table-layout:fixed;
     margin: 2%;
     width: 96vw;
     overflow: scroll;
 }
 
 th, td {
-    padding: 4px;
+    padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
@@ -125,14 +125,14 @@ iframe {
     box-sizing: content-box;
     top: 0px;
     left: 100vw;
-    width: 60vw;
-    height: 100vh;
+    width: 96vw;
+    /* max-height: 50vh; */
     overflow-y: scroll;
     z-index: 1;
     padding: 2%;
-    margin-left: 33vw;
+    /* margin-left: 33vw; */
     background-color: white;
-    transition: all 0.5s ease-in-out;
+    /* transition: all 0.5s ease-in-out; */
     opacity: 0;
 }
 
@@ -206,8 +206,8 @@ canvas {
 
     .about {
         box-sizing: content-box;
-        margin-left: 10vw;
-        width: 80vw;
+        /* margin-left: 10vw; */
+        width: 100vw;
     }
 
     .canv-area {
