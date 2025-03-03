@@ -105,14 +105,14 @@ let collections = [
       method:"Usually by taking photos of irl type using my phone, or taking a screenshot on my phone or computer — saving to a folder in my iphone with some random emoji to let me know it's my type collection — then I share it to my public account, @type.gram on instagram. Much documented type does not make it that far due to me being forgetful, but nonetheless, it is still appreciated :)"
     },
     {
-      title:"A collection of lost Chinese feminist websites from before social media took over - kind of like digital ghosts of what feminist spaces on the Chinese internet used to look like in the early 2000s",
+      title:"A collection of lost Chinese feminist websites",
       author:"ephemeral:data\ (Crassula Shang, i-want-cookies, and YoEve)",
       range:"2023-present",
       link:"https://chinese-cyberfeminism-archive.com/",
-      method:"we're like digital archaeologists with a bit of a DIY approach: - we dig through the Wayback Machine looking for traces of these old sites - we wrote our own web crawler to help us gather snapshots and images (it's kind of scrappy, but it works!) - when we find one site, we follow all its links to discover others (like following a trail of breadcrumbs through internet history) - we put all sites in a hand-coded web archive with embedded web emulators so people can actually click around these old sites"
+      method:"From before social media took over, these websites are kind of like digital ghosts of what feminist spaces on the Chinese internet used to look like in the early 2000s. we're like digital archaeologists with a bit of a DIY approach: - we dig through the Wayback Machine looking for traces of these old sites - we wrote our own web crawler to help us gather snapshots and images (it's kind of scrappy, but it works!) - when we find one site, we follow all its links to discover others (like following a trail of breadcrumbs through internet history) - we put all sites in a hand-coded web archive with embedded web emulators so people can actually click around these old sites"
     },
     {
-      title:"A collection of visual fragments - diagrams, images, and graphic elements - gathered from materials in the Cybernetics Library",
+      title:"A collection of visual fragments gathered from materials in the Cybernetics Library",
       author:"cha.ski",
       range:"2024-present",
       link:"https://cyberneticsimagelibrary.netlify.app/",
@@ -147,11 +147,11 @@ let collections = [
       method:"watching an episode and then adding an entry to my Notion table"
     },
     {
-      title:"A collection of notes app drawings that i drew with my finger while on long phone conversations—primarily with my friend malia.",
+      title:"A collection of notes app drawings that i drew with my finger while on long phone conversations",
       author:"Christine (cynical pinay)",
       range:"2020-present",
       link:"https://drive.google.com/drive/folders/1-Yz2j05CI_Co0ysXwYHIlJe5LsDtE2f9?usp=sharing",
-      method:"they are collected on non-written notes and within random written notes in my iphone. multiple drawings are also collected within one note. for the purposes of this submission, they are screenshotted and filed into a google drive folder."
+      method:"drawn while on long phone conversations—primarily with my friend malia. they are collected on non-written notes and within random written notes in my iphone. multiple drawings are also collected within one note."
     },
     {
       title:"A collection of google maps user submitted photos of grocery stores",
@@ -175,11 +175,11 @@ let collections = [
       method:"i copy a link to the comment and submit it to a form, i have browser automation code i made on my computer that i then run to scrape the data from the link and upload it to the collection where it shows up on the website"
     },
     {
-      title:"A collection of typefaces and fonts I've used for many projects over the years. Some are good, some are bad, and some are just ok.",
+      title:"A collection of typefaces and fonts",
       author:"Jonathan Sangster",
       range:"2021-2025",
       link:"https://drive.google.com/drive/folders/1Oqg2mfic30gx6S7lfeWfA-qosVWYhhGB?usp=sharing",
-      method:"I use internet research to collect these for current and future use or as a pathway to inspiration."
+      method:"I've used these fonts for many projects over the years. Some are good, some are bad, and some are just ok. I use internet research to collect these for current and future use or as a pathway to inspiration."
     },
     {
       title:"A collection of missed connections from craigslist",
@@ -294,11 +294,11 @@ let collections = [
       method:"I used to keep a spreadsheet of books I've once owned, then built a front and back-end for the archive out of the spreadsheet."
     },
     {
-      title:"A collection of 'Online' or, 'Computerisms' of images related to the web/technology in a wacky/campy like ephemra",
+      title:"A collection of 'Online' or 'Computerisms'",
       author:"Luna Davis",
       range:"2022–present",
       link:"",
-      method:"When I'm searching for inspiration or ideas related to technology, cyber punk, or just weird technology I go on Pinterest to search for it an collect it."
+      method:"Images related to the web/technology in a wacky/campy like ephemra. When I'm searching for inspiration or ideas related to technology, cyber punk, or just weird technology I go on Pinterest to search for it an collect it."
     },
     {
       title:"A collection of memes sourced from argentinian cyberspace",
@@ -315,11 +315,11 @@ let collections = [
       method:"Screenshotting from Google Street view and marking on a custom google map."
     },
     {
-      title:"A collection of screenshots, memes and artworks captured in 2020 in Seattle, while living just outside of CHOP.",
+      title:"A collection of screenshots, memes and artworks captured in 2020 in Seattle",
       author:"Meghan Thréinfhir (née Trainor)",
       range:"2020 only",
       link:"https://drive.google.com/drive/folders/1nWkuRquqJn6Ryiov0wqTmt16LBhWHcX7?usp=sharing",
-      method:"I added any image that captured the bewildering nature of 2020, some are images from the web, most are screenshots I nabbed, some are my own artworks & experiences from that time."
+      method:"While living just outside of CHOP, I added any image that captured the bewildering nature of 2020, some are images from the web, most are screenshots I nabbed, some are my own artworks & experiences from that time."
     },
     {
       title:"A collection of hands on hands on hands",
@@ -378,21 +378,21 @@ let collections = [
       method:"I have made my Instagram algorithm show me open calls on my Explore page. I save them to a collection on Instagram (shared as a video and screenshot) and then add them to a Google sheet at the end of each week or so (shared as .xlsx and .pdf) and make a page for each based on the application dates so I can go back and apply to them, and then add them to my calendar (not shared)"
     },
     {
-      title:"A collection of stickers from around New York city",
+      title:"A collection of stickers from around New York City",
       author:"Andrés Cuervo",
       range:"July 9, 2024–March 1, 2025",
       link:"https://www.are.na/andres-cuervo/stickers-18cztgjpiz4",
       method:"I take a picture of them, add them to this Are.na channel, and add metadata like where I saw it & alt text describing the stickers."
     },
     {
-      title:"A collection of coordinates of roadkill—lives sacrificed for the current automotive-focused vision of human transit—for whom I burned digital incense during my commutes",
+      title:"A collection of coordinates of roadkill for whom I burned digital incense during my commutes",
       author:"alice x tang",
-      range:"July 9, 2024–March 1, 2025",
+      range:"2024–present.",
       link:"https://drive.google.com/drive/folders/15Ggl39Bb3HDpRSqqs_UW3SruS7FVOBDx?usp=sharing",
-      method:"2024–present."
+      method:"Roadkill are lives sacrificed for the current automotive-focused vision of human transit. Inspired by chinese incense burning practices (香道 xiangdao), I built a simple website to help me with the process here - https://xdta.github.io/gps-tracker/. When I spot roadkill during my long commutes, I use this site to help me log the time and geolocation that digital incense was burned. When I want to reset the log, I can clear the locations and save a text file with the data. The collection I submitted represents a subset of what I've collected so far as part of this ongoing Roadkill Ritual project."
     },
     {
-      title:"A collection of substrates",
+      title:"A collection of Substrates",
       author:"Eileen Ramos",
       range:"2024–present",
       link:"https://leaflet.pub/541e7b1c-1683-4f3b-8bcf-410f62dfc7ab",

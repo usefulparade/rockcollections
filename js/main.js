@@ -69,7 +69,7 @@ function setupAsciify(){
 }
 
 function setup() {
-  columns = floor(constrain((windowWidth / 100), 3, 8));  
+  columns = floor(constrain((windowWidth / 100), 3, 7));  
   spacing = 100;
   topPadding = 60;
   cabSize = spacing*columns;
@@ -403,7 +403,7 @@ function windowResized()
 
 function rockColumnSolver(imm)
 {
-  columns = floor(constrain((windowWidth / 100), 3, 8));
+  columns = floor(constrain((windowWidth / 100), 3, 7));
   cabSize = spacing*columns;
   cabSizeHalf = cabSize*0.5;
   rows = collections.length / columns;
