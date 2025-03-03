@@ -1,15 +1,15 @@
 let collections = [
     {
-        title:"A collection of Questions",
+        title:"A collection of questions",
         author:"Hue",
-        range:"2019 – present",
+        range:"2019–present",
         link:"https://www.are.na/hue-ho_8g3p7r7y/practicing-compassionate-curiosity",
         method:"I read something and it sparks, or I’ll let my mind meander and words form. Sometimes it’s overhearing it. Sometimes it’s through conversation with friends and brief encounters. I use a website called Are.na, and there’s a feature that lets you toggle your “channels” to let others add questions. So sometimes people add their own questions or connect the questions I’ve collected into their own channels."
     },
     {
         title:"A collection of security patterns found in envelope liners",
         author:"Brandon Alvarado",
-        range:"2018 – present",
+        range:"2018–present",
         link:"https://www.are.na/brandon-alvarado/envelope-liners",
         method:"I keep a physical collection of the envelopes in my studio. Each unique pattern gets scanned and stored on my computer and cataloged on my are.na board, 'envelope liners'."
     },
@@ -30,7 +30,7 @@ let collections = [
     {
         title:"A collection of signs telling us what not to do around the world",
         author:"Laura Sinisterra",
-        range:"2022 – present",
+        range:"2022–present",
         link:"https://www.are.na/laura-sinisterra/observing-signs",
         method:"taking pictures every time I see an interesting sign, with a particular focus on handwritten, then I categorize them into a folder in my phone, then upload them to are.na"
     },
@@ -345,7 +345,7 @@ let collections = [
     {
       title:"A collection of spam mail",
       author:"SPAM (Sociedad Para Archivar Mail)",
-      range:"2021– ",
+      range:"2021–present",
       link:"https://sociedad-para-archivar-mail.tumblr.com/?fbclid=PAZXh0bgNhZW0CMTEAAaaDmWKpIrFensLorVHoZmJAGFsywDwGwvtp6qzmvUnmJVBPQjDY17D0bK4_aem_jNnd_Wj88jX0NEZlPolU9A",
       method:"Screenshots in a folder. For a while I started posting them to a Tumblr blog and Instagram profile, also inviting people to send screenshots of their spam email. "
     },
@@ -359,22 +359,22 @@ let collections = [
     {
       title:"A collection of paypal's partners' privacy policies",
       author:"Isaac Rhett",
-      range:"2003–present/mostly 2020-present",
+      range:"2025-02-05",
       link:"https://gist.github.com/izcet/7dc1d77046378c767d688f9415f03029",
       method:"trying to follow the legitimate path of opting-out of unnecessary advertising tracking, I saved the list of the partners they openly connect with and filtered it for clarity"
     },
     {
       title:"A collection of shadows of life and living things with timestamps",
       author:"Victoria Levchenko",
-      range:"2016–",
+      range:"2016–present",
       link:"https://www.are.na/victoria-levchenko/shadows-of-life-and-the-living-collection",
       method:"adding into a folder—sporadically—misplacing or not labeling"
     },
     {
-      title:"A collection of Open Calls for artist residencies and exhibitions",
+      title:"A collection of open calls for artist residencies and exhibitions",
       author:"Suraj Barthy",
-      range:"2024 and ongoing",
-      link:"https://docs.google.com/spreadsheets/d/1gFUaojLgFjLuxL4ZkS6wJdPVp15TnFvkJVZe5gD1pFw/edit?usp=sharing",
+      range:"2024—present",
+      link:"collections/surajbarthy.html",
       method:"I have made my Instagram algorithm show me open calls on my Explore page. I save them to a collection on Instagram (shared as a video and screenshot) and then add them to a Google sheet at the end of each week or so (shared as .xlsx and .pdf) and make a page for each based on the application dates so I can go back and apply to them, and then add them to my calendar (not shared)"
     },
     {
@@ -387,7 +387,7 @@ let collections = [
     {
       title:"A collection of coordinates of roadkill for whom I burned digital incense during my commutes",
       author:"alice x tang",
-      range:"2024–present.",
+      range:"2024–present",
       link:"https://drive.google.com/drive/folders/15Ggl39Bb3HDpRSqqs_UW3SruS7FVOBDx?usp=sharing",
       method:"Roadkill are lives sacrificed for the current automotive-focused vision of human transit. Inspired by chinese incense burning practices (香道 xiangdao), I built a simple website to help me with the process here - https://xdta.github.io/gps-tracker/. When I spot roadkill during my long commutes, I use this site to help me log the time and geolocation that digital incense was burned. When I want to reset the log, I can clear the locations and save a text file with the data. The collection I submitted represents a subset of what I've collected so far as part of this ongoing Roadkill Ritual project."
     },
