@@ -73,7 +73,7 @@ let collections = [
       title:"A collection of intentional and stream of consciousness lists for various aspects of my life",
       author:"Amaryllis Ara",
       range:"2022-present",
-      link:"",
+      link:"collections/AmaryllisAra.html",
       method:"In my notes app. I continuously add to ongoing lists and intuitively create lists based on what pops into my head at the moment."
     },
     {
@@ -262,7 +262,7 @@ let collections = [
       title:"A collection of something went wrong messages",
       author:"Cortney Cassidy",
       range:"2020–present",
-      link:"https://www.are.na/cortney-cassidy/something-went-wrong",
+      link:"https://www.are.na/cortney-cassidy/something-went-wrong-b68-enh1lxu",
       method:"are.na channel"
     },
     {
@@ -343,7 +343,7 @@ let collections = [
       method:"seeing a Thing On Cement, taking a picture, posting it to instagram"
     },
     {
-      title:"A collection of Spam mail",
+      title:"A collection of spam mail",
       author:"SPAM (Sociedad Para Archivar Mail)",
       range:"2021– ",
       link:"https://sociedad-para-archivar-mail.tumblr.com/?fbclid=PAZXh0bgNhZW0CMTEAAaaDmWKpIrFensLorVHoZmJAGFsywDwGwvtp6qzmvUnmJVBPQjDY17D0bK4_aem_jNnd_Wj88jX0NEZlPolU9A",
@@ -353,7 +353,7 @@ let collections = [
       title:"A collection of art world rejection data entries of an average artist",
       author:"Jaye Cho",
       range:"2003–present/mostly 2020-present",
-      link:"https://sociedad-para-archivar-mail.tumblr.com/?fbclid=PAZXh0bgNhZW0CMTEAAaaDmWKpIrFensLorVHoZmJAGFsywDwGwvtp6qzmvUnmJVBPQjDY17D0bK4_aem_jNnd_Wj88jX0NEZlPolU9A",
+      link:"https://docs.google.com/document/d/1fg2t9SX4x8ZZ5m3nkdl5EPWvju4DmOYN/edit?usp=sharing&ouid=104606127685054102741&rtpof=true&sd=true",
       method:"I applied to open calls and grants, each application takes days if not weeks to complete. I also applied to random jobs whenever I have existential criss at night. All these from the past years became my rejections collection. To make it more readable as data, I've organized each rejection email screenshots and physical letters in to a CV format."
     },
     {
