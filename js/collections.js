@@ -77,8 +77,8 @@ let collections = [
       method:"In my notes app. I continuously add to ongoing lists and intuitively create lists based on what pops into my head at the moment."
     },
     {
-      title:"A collection of sacred invocations and memefied musings on the internet space.",
-      author:"Prayer on the Internet",
+      title:"A collection of Prayer on the Internet",
+      author:"Marshall Meixuan Wang",
       range:"2023-present",
       link:"https://www.are.na/marshall-wang/prayer-on-the-internet",
       method:"Are.na is the main tool I use to collect them. I put everything I discover in the folder. Sometimes I screenshot and upload, sometimes I collect them through the browser, and sometimes I find them on social media."
@@ -120,7 +120,7 @@ let collections = [
     },
     {
       title:"A collection of songs that have captured the vibes of specific days in my life",
-      author:"mk zariel",
+      author:"MK Zariel",
       range:"2025 onward",
       link:"https://open.spotify.com/playlist/5EVVes9QqhUriZ8NiCM6hb?si=b8927efd96f844de",
       method:"at the end of every day, i reflect on my experiences that day and choose a song that feels resonant—sometimes on content, but often just based on vibes—and add to this playlist."
@@ -148,7 +148,7 @@ let collections = [
     },
     {
       title:"A collection of notes app drawings that i drew with my finger while on long phone conversations—primarily with my friend malia.",
-      author:"christine (cynical pinay)",
+      author:"Christine (cynical pinay)",
       range:"2020-present",
       link:"https://drive.google.com/drive/folders/1-Yz2j05CI_Co0ysXwYHIlJe5LsDtE2f9?usp=sharing",
       method:"they are collected on non-written notes and within random written notes in my iphone. multiple drawings are also collected within one note. for the purposes of this submission, they are screenshotted and filed into a google drive folder."
@@ -210,8 +210,8 @@ let collections = [
       method:"I collect by continually searching 'strip club signage and ephemera from the pandemic' every few weeks and screenshotting and saving the images to my desktop in a folder titled 'Little Darlings.' I also edit the images at times. I will submit a few images that represent the collection, with an original image and two edited images."
     },
     {
-      title:"A collection of online articles on AI' screeshots",
-      author:"Radomic-Snapshotted: Flânering Readings’ Memoir",
+      title:"Radomic-Snapshotted: Flânering Readings’ Memoir",
+      author:"Clarissa Ribeiro",
       range:"2022–present",
       link:"collections/randomic.html",
       method:"screenshotting The New York Times articles on Tech and AI and saving to a folder"
@@ -297,7 +297,7 @@ let collections = [
       title:"A collection of 'Online' or, 'Computerisms' of images related to the web/technology in a wacky/campy like ephemra",
       author:"Luna Davis",
       range:"2022–present",
-      link:"https://www.pinterest.com/diiscohell/online/",
+      link:"",
       method:"When I'm searching for inspiration or ideas related to technology, cyber punk, or just weird technology I go on Pinterest to search for it an collect it."
     },
     {
@@ -424,8 +424,8 @@ function populateTable()
         // d.innerHTML = "<a target='_blank' href='" + preSorted[i].link + "'>visit this collection></a>";
         e.innerHTML = preSorted[i].method;
         
-        row.appendChild(b);
         row.appendChild(a);
+        row.appendChild(b);
         row.appendChild(c);
         // row.appendChild(d);
         row.appendChild(e);
