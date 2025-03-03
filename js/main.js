@@ -370,7 +370,11 @@ function changeCollectionInfo(title,author,range,link)
     visitP.innerHTML = "visit this collection >";
   }
 
-  nav.scrollTo(0, nav.scrollHeight);
+  if (windowWidth <= 640)
+  {
+    nav.scrollTo(0, nav.scrollHeight);
+  }
+  
 }
 
 function showAbout(show)
