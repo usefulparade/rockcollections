@@ -116,7 +116,7 @@ let collections = [
       author:"cha.ski",
       range:"2024-present",
       link:"https://cyberneticsimagelibrary.netlify.app/",
-      method:"An open, living archive where visitors submit images - often screenshots or cropped phone photos from physical or digitized sources - of visual fragments - diagrams, photographs, and graphic elements - gathered from materials in the Cybernetics Library catalog. Visitors can traverse the ever-evolving visual repository through search, filtering, collections, and associative tags, traversing relationships and encountering latent associations within the growing image dataset. Visitors submit images through a form, which automatically stores them in Firebase, catalogs image and resource metadata in Google Sheets, and retrieves them dynamically (via Firestore) on the web platform built with Vue.js. The Cybernetics Library’s expansive collection of over 2,000 materials ranges from media theory, cognitive science, and architecture to grassroots zines, rare archival material and ephemera, artists’ publications and technical literature. "
+      method:"An open, living archive where visitors submit images of visual fragments - diagrams, photographs, and graphic elements - from materials in the Cybernetics Library catalog. The Cybernetics Library’s expansive collection of over 2,000 materials ranges from media theory, cognitive science, and architecture to grassroots zines, rare archival material and ephemera, artists’ publications and technical literature. Visitors can traverse the visual repository through search, filtering, collections, and associative tags, encountering latent relationships within the growing image dataset."
     },
     {
       title:"A collection of songs that have captured the vibes of specific days in my life",
@@ -301,7 +301,7 @@ let collections = [
       method:"Images related to the web/technology in a wacky/campy like ephemra. When I'm searching for inspiration or ideas related to technology, cyber punk, or just weird technology I go on Pinterest to search for it an collect it."
     },
     {
-      title:"A collection of memes sourced from argentinian cyberspace",
+      title:"A collection of memes sourced from Argentinian cyberspace",
       author:"Pilar Larriera",
       range:"2020–present",
       link:"https://marea.neocities.org/a/argenmemetica/",
